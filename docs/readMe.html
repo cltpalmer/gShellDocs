@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>gShell ReadMe</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0f0f0f;
+      color: #e8fefc;
+      line-height: 1.6;
+      padding: 2rem;
+    }
+
+    h1, h2 {
+      color: #00ffcc;
+    }
+
+    code {
+      background: #111;
+      color: #00ffcc;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    .section {
+      margin-bottom: 2rem;
+    }
+
+    .cmd-box {
+      background: #101c1b;
+      padding: 1rem;
+      border: 1px solid #264e46;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+
+    .cmd {
+      color: #96ffe2; /* pastel bluish-green accent */
+      font-weight: bold;
+    }
+
+    a {
+      color: #78f5dc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>📖 gShell - ReadMe</h1>
+
+  <div class="section">
+    <h2>What is gShell?</h2>
+    <p><strong>gShell</strong> is a custom browser-based CLI that lets you interact with Google Sheets like a digital wizard 🧙🏾‍♂️. Whether you’re organizing data, triggering automations, or just flexing terminal aesthetic — this is your command central.</p>
+  </div>
+
+  <div class="section">
+    <h2>How to Use</h2>
+    <ul>
+      <li>Type a command like <code>read Sheet1</code> to fetch data</li>
+      <li>Use the <code>📊</code> toggle to switch between Personal and Business sheets</li>
+      <li>Open documentation like this from the side panel</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Available Commands</h2>
+    <div class="cmd-box">
+      <p><span class="cmd">read Sheet1</span> – pull all rows from a sheet</p>
+      <p><span class="cmd">help</span> – list commands available</p>
+      <p><span class="cmd">clear</span> – wipe terminal log</p>
+      <p><span class="cmd">switch</span> – swap current account context</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Notes</h2>
+    <p>gShell uses a <code>serviceAccount.json</code> file for authenticating with the Google Sheets API. <strong>Never share this file publicly</strong>.</p>
+  </div>
+
+  <div class="section">
+    <h2>Credits</h2>
+    <p>Designed & built by <span class="cmd">Steven</span> — the visionary coder ⚡</p>
+  </div>
+</body>
+</html>
