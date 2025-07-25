@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>gShell Docs - addRowPublic</title>
+  <style>
+    body {
+      background-color: #101820;
+      color: #e0f7ff;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 2rem;
+      line-height: 1.7;
+    }
+
+    h1, h2, h3 {
+      color: #00c2ff;
+    }
+
+    h1 {
+      font-size: 2rem;
+      border-bottom: 1px solid #00c2ff33;
+      padding-bottom: 0.5rem;
+    }
+
+    code {
+      background-color: #1e2a35;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      color: #00f6ff;
+    }
+
+    pre {
+      background-color: #1a242f;
+      padding: 1rem;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+
+    th, td {
+      border: 1px solid #2a3b4d;
+      padding: 0.6rem;
+      text-align: left;
+    }
+
+    th {
+      background-color: #15202b;
+      color: #00f6ff;
+    }
+
+    td {
+      background-color: #111921;
+    }
+
+    .section {
+      margin-top: 2rem;
+    }
+
+    .tip {
+      background-color: #002531;
+      border-left: 4px solid #00c2ff;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🚀 Quick Guide: <code>addRowPublic</code> with Smart Merge</h1>
+
+<div class="section">
+  <h2>🔧 Basic Usage</h2>
+  <pre><code>await gShell.addRowPublic(owner, app, sheet, rowData, options);</code></pre>
+</div>
+
+<div class="section">
+  <h2>📦 Parameters</h2>
+  <table>
+    <thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>owner</code></td><td>string</td><td>The data owner (e.g., "brewbase")</td></tr>
+      <tr><td><code>app</code></td><td>string</td><td>The app name (e.g., "brewBase")</td></tr>
+      <tr><td><code>sheet</code></td><td>string</td><td>The sheet name (e.g., "cart")</td></tr>
+      <tr><td><code>rowData</code></td><td>object</td><td>The row data to insert</td></tr>
+      <tr><td><code>options</code></td><td>object</td><td>Merge + user injection settings</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <h2>✨ Examples</h2>
+
+  <h3>1. Basic Add (No Merge)</h3>
+  <pre><code>await gShell.addRowPublic("brewbase", "brewBase", "cart", {
+  product_name: "Apple",
+  quantity: 1,
+  price: 1.99
+});</code></pre>
+
+  <h3>2. Smart Cart Merge</h3>
+  <pre><code>await gShell.addRowPublic("brewbase", "brewBase", "cart", {
+  product_name: "Apple",
+  quantity: 1,
+  price: 1.99
+}, {
+  usernameField: "user",
+  mergeUserRows: true,
+  mergeKey: "product_name",
+  mergeAction: "increment",
+  incrementField: "quantity"
+});</code></pre>
+</div>
+
+<div class="section">
+  <h2>🛠 Merge Options</h2>
+
+  <h3><code>mergeUserRows</code> (boolean)</h3>
+  <p>Enable or disable per-user merging.</p>
+  <pre><code>mergeUserRows: true  // Smart merging ON
+mergeUserRows: false // Always add new row</code></pre>
+
+  <h3><code>mergeKey</code></h3>
+  <p>What field should trigger a merge?</p>
+  <pre><code>mergeKey: "product_name"
+mergeKey: "product_id"</code></pre>
+
+  <h3><code>mergeAction</code> Options</h3>
+  <table>
+    <thead><tr><th>Action</th><th>Description</th><th>Use Case</th></tr></thead>
+    <tbody>
+      <tr><td><code>"increment"</code></td><td>Add to a number</td><td>Quantity, points</td></tr>
+      <tr><td><code>"append"</code></td><td>Add to array</td><td>Tags, lists</td></tr>
+      <tr><td><code>"replace"</code></td><td>Overwrite</td><td>Settings, updates</td></tr>
+    </tbody>
+  </table>
+
+  <h3><code>incrementField</code> / <code>appendField</code></h3>
+  <pre><code>incrementField: "quantity"
+appendField: "tags"</code></pre>
+</div>
+
+<div class="section">
+  <h2>📂 Real Use Cases</h2>
+
+  <h3>🛒 E-Commerce Cart</h3>
+  <pre><code>{ product_name: "iPhone 15", quantity: 1, ... }</code></pre>
+
+  <h3>✅ Todo List</h3>
+  <pre><code>{ task_name: "Buy groceries", priority: "high" }</code></pre>
+
+  <h3>🏷️ Tag System</h3>
+  <pre><code>{ post_id: "123", new_tag: "javascript" }</code></pre>
+
+  <h3>🗳 Voting System</h3>
+  <pre><code>{ post_id: "456", vote_value: 1 }</code></pre>
+</div>
+
+<div class="section">
+  <h2>🔒 User Isolation Logic</h2>
+  <div class="tip">
+    Merging only applies <strong>within each user's rows</strong>. Data stays scoped.
+  </div>
+</div>
+
+<div class="section">
+  <h2>🎯 When to Use Each</h2>
+
+  <strong>Use <code>mergeUserRows: true</code> when:</strong>
+  <ul>
+    <li>✅ Shopping carts</li>
+    <li>✅ Voting systems</li>
+    <li>✅ Preferences</li>
+  </ul>
+
+  <strong>Use <code>false</code> when:</strong>
+  <ul>
+    <li>✅ Order history</li>
+    <li>✅ Comments</li>
+    <li>✅ Logs</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>🧪 Testing</h2>
+  <pre><code>// Step 1: Add first item
+await gShell.addRowPublic(...);
+
+// Step 2: Add same again → quantity should increment
+
+// Step 3: Verify data in gShell viewer</code></pre>
+</div>
+
+<div class="section">
+  <h2>🔍 Merge Key Cheatsheet</h2>
+  <table>
+    <thead><tr><th>Use Case</th><th>mergeKey</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>🛒 Cart</td><td><code>product_name</code></td><td>Same product</td></tr>
+      <tr><td>📌 Tasks</td><td><code>task_name</code></td><td>Same todo</td></tr>
+      <tr><td>🔧 Settings</td><td><code>setting_name</code></td><td>User prefs</td></tr>
+      <tr><td>🏠 Location</td><td><code>location_id</code></td><td>Same place</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <h2>💡 Pro Tips</h2>
+  <ul>
+    <li>✅ Always use <code>usernameField</code> to isolate user merges</li>
+    <li>✅ Test duplicate adds before production</li>
+    <li>✅ Set correct <code>mergeAction</code> based on your data</li>
+  </ul>
+</div>
+
+</body>
+</html>
