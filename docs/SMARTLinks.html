@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartLinks: Complete Guide & How-To</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1a1a1a; /* Dark background from image theme */
+            color: #e0e0e0; /* Light grey text for contrast */
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* Container for content */
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background-color: #2a2a2a; /* Slightly lighter dark for content area */
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 24px rgba(0, 255, 136, 0.1); /* Green glow shadow */
+            border: 1px solid #00FF88; /* Green border */
+            box-sizing: border-box;
+        }
+
+        /* Headings */
+        h1, h2, h3 {
+            color: #00FF88; /* Bright green for headings */
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            text-align: center;
+            border-bottom: 2px solid #00FF88;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            border-bottom: 1px solid rgba(0, 255, 136, 0.5);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            color: #33FF99; /* Slightly different green for sub-headings */
+            margin-bottom: 10px;
+        }
+
+        /* Paragraphs */
+        p {
+            margin-bottom: 1em;
+        }
+
+        /* Horizontal Rule */
+        hr {
+            border: none;
+            border-top: 1px dashed rgba(0, 255, 136, 0.3);
+            margin: 30px 0;
+        }
+
+        /* Code Blocks */
+        pre {
+            background-color: #1e1e1e; /* Even darker for code blocks */
+            color: #00FF88; /* Green text for code */
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+            border: 1px solid rgba(0, 255, 136, 0.4);
+        }
+
+        code {
+            font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+            background-color: #333; /* Darker background for inline code */
+            color: #00FF88;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            border-radius: 0;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #222;
+            border-radius: 8px;
+            overflow: hidden; /* Ensures rounded corners apply to content */
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #3a3a3a; /* Darker border for table cells */
+        }
+
+        th {
+            background-color: #00FF88; /* Green background for table headers */
+            color: #1a1a1a; /* Dark text on green header */
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        tr:nth-child(even) {
+            background-color: #252525; /* Slightly different background for even rows */
+        }
+
+        /* Lists */
+        ul {
+            list-style-type: disc;
+            padding-left: 25px;
+            margin-bottom: 1em;
+        }
+
+        ol {
+            list-style-type: decimal;
+            padding-left: 25px;
+            margin-bottom: 1em;
+        }
+
+        li {
+            margin-bottom: 0.5em;
+        }
+
+        /* Blockquotes */
+        blockquote {
+            border-left: 4px solid #00FF88; /* Green border for blockquote */
+            padding-left: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #b0b0b0; /* Slightly lighter grey for blockquote text */
+        }
+
+        /* Links */
+        a {
+            color: #00FF88; /* Green links */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #33FF99; /* Lighter green on hover */
+            text-decoration: underline;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            h3 {
+                font-size: 1.2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.3em;
+            }
+            h3 {
+                font-size: 1.1em;
+            }
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+            tr {
+                border: 1px solid #3a3a3a;
+                margin-bottom: 10px;
+                border-radius: 8px;
+            }
+            td {
+                border: none;
+                border-bottom: 1px solid #3a3a3a;
+                position: relative;
+                padding-left: 50%;
+                text-align: right;
+            }
+            td:before {
+                position: absolute;
+                top: 6px;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                text-align: left;
+                font-weight: bold;
+                color: #00FF88;
+            }
+            /* Labeling the cells for small screens */
+            td:nth-of-type(1):before { content: "Field"; }
+            td:nth-of-type(2):before { content: "Description"; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📎 SmartLinks: Complete Guide & How-To</h1>
+
+        <p>SmartLinks in gShell let you automatically resolve references between sheets. Instead of manually mapping UUIDs to data, SmartLinks handle it for you—cleanly, scalably, and dynamically.</p>
+
+        <hr>
+
+        <h2>🚀 What Is a SmartLink?</h2>
+
+        <p>A <strong>SmartLink</strong> is a schema-defined way to link rows in one sheet to rows in another. When a SmartLink is configured, your system auto-generates a <code>_resolved</code> version of the field that contains the <strong>full referenced row(s)</strong>.</p>
+
+        <h3>🔗 Example:</h3>
+        <pre><code>"friends": [1753724485243, 1753796993062]</code></pre>
+        <p>Becomes:</p>
+        <pre><code>"friends_resolved": [
+  { "uuid": 1753724485243, "user": "jes", "pfp": "..." },
+  { "uuid": 1753796993062, "user": "somie", "pfp": "..." }
+]</code></pre>
+
+        <hr>
+
+        <h2>⚙️ How to Define a SmartLink</h2>
+
+        <p>In your <code>.schema.json</code> file, add to the <code>smartLinks</code> object:</p>
+        <pre><code>"smartLinks": {
+  "friends": {
+    "targetSheet": "userz",
+    "targetApp": "dreamWeave",
+    "refColumn": "uuid",
+    "displayColumns": ["user", "pfp"],
+    "storeMode": "reference"
+  }
+}</code></pre>
+
+        <h3>🧩 Key Fields Explained:</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>targetSheet</code></td>
+                    <td>The sheet you're linking to</td>
+                </tr>
+                <tr>
+                    <td><code>targetApp</code></td>
+                    <td>App the target sheet lives in</td>
+                </tr>
+                <tr>
+                    <td><code>refColumn</code></td>
+                    <td>Which column to match IDs with (usually <code>uuid</code>)</td>
+                </tr>
+                <tr>
+                    <td><code>displayColumns</code></td>
+                    <td>What fields to resolve and include in the UI</td>
+                </tr>
+                <tr>
+                    <td><code>storeMode</code></td>
+                    <td><code>reference</code> (default) or <code>snapshot</code> for frozen values</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h2>📤 How It Works in Code</h2>
+
+        <p>When you use any of the following:</p>
+        <ul>
+            <li><code>getMyRow</code></li>
+            <li><code>getAllMyRows</code></li>
+            <li><code>getUserRow</code></li>
+            <li><code>getPublicUserRows</code></li>
+        </ul>
+        <p>...and your schema has <code>smartLinks</code>, your backend will automatically:</p>
+        <ol>
+            <li>Detect SmartLinked columns</li>
+            <li>Find matching rows in target sheet</li>
+            <li>Build a <code>.resolved</code> version of the field</li>
+            <li>Inject only the fields you listed in <code>displayColumns</code></li>
+        </ol>
+        <p>✅ No extra fetch calls needed.<br>✅ No mapping logic in frontend.</p>
+
+        <hr>
+
+        <h2>🧠 Accessing SmartLinked Data</h2>
+
+        <p>Use the <code>_resolved</code> suffix in your frontend:</p>
+        <pre><code>{user.friends_resolved.map((friend) => (
+  &lt;div key={friend.uuid}>
+    &lt;img src={friend.pfp} />
+    &lt;p>{friend.user}&lt;/p>
+  &lt;/div>
+))}</code></pre>
+
+        <hr>
+
+        <h2>✨ Advanced Features</h2>
+
+        <h3>🔁 <code>appendOnUpdate</code></h3>
+        <p>Automatically append to list-type columns (e.g. <code>friends</code>) on update:</p>
+        <pre><code>"appendOnUpdate": {
+  "friends": true
+}</code></pre>
+
+        <h3>📚 <code>listTypes</code></h3>
+        <p>Specify the behavior of list fields (normal vs multi-relation):</p>
+        <pre><code>"listTypes": {
+  "friends": "normal"
+}</code></pre>
+
+        <h3>🔐 <code>columnAccess</code> Support</h3>
+        <p>SmartLink-resolved fields still respect <code>columnAccess</code> rules per role.</p>
+
+        <h3>🧪 Nested Resolution (Future Plan)</h3>
+        <p>Support for resolving inside <code>friends_resolved.their_friends_resolved</code> with depth limit.</p>
+
+        <hr>
+
+        <h2>🧼 Best Practices</h2>
+        <ul>
+            <li>Use <code>uuid</code> for referencing—don’t rely on <code>usernames</code> which can change.</li>
+            <li>Keep <code>displayColumns</code> minimal to reduce response size.</li>
+            <li>Only use <code>snapshot</code> if you want data to stay frozen (e.g. order history).</li>
+            <li>Avoid circular SmartLinks (e.g., A → B and B → A)</li>
+        </ul>
+
+        <hr>
+
+        <h2>🛠️ Debugging Tips</h2>
+        <p>If <code>friends_resolved</code> is empty, check:</p>
+        <ul>
+            <li>Your <code>refColumn</code> matches actual target values</li>
+            <li>Your <code>displayColumns</code> are readable by the role</li>
+            <li>The UUIDs in your main field match actual target rows</li>
+        </ul>
+
+        <hr>
+
+        <h2>✅ Real Example in <code>userz.schema.json</code></h2>
+        <pre><code>"smartLinks": {
+  "friends": {
+    "targetSheet": "userz",
+    "targetApp": "dreamWeave",
+    "refColumn": "uuid",
+    "displayColumns": ["user", "pfp"],
+    "storeMode": "reference"
+  }
+},
+"appendOnUpdate": {
+  "friends": true
+}</code></pre>
+
+        <hr>
+
+        <h2>🧠 Final Thought</h2>
+        <p>Your SmartLinks system mimics powerful database joins <strong>without using a real database</strong>. This makes your gShell framework modular, efficient, and incredibly dev-friendly.</p>
+        <blockquote>One schema tweak → Instantly relational data.</blockquote>
+    </div>
+</body>
+</html>
