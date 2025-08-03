@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>gShell Automations</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      background: #000;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #00ff9f;
+      margin-bottom: 2.5rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid #00ff9f33;
+      border-radius: 16px;
+      padding: 1.5rem;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 0 15px rgba(0, 255, 159, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 25px rgba(0, 255, 159, 0.35);
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.4rem;
+      color: #00ff9f;
+    }
+
+    .tagline {
+      font-size: 0.9rem;
+      color: #b5fdf0;
+      margin-bottom: 1rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #dddddd;
+      line-height: 1.6;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #00ff9f22;
+      border: 1px solid #00ff9f;
+      color: #00ff9f;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 6px;
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>⚙️ gShell Automation Types</h1>
+
+  <div class="grid">
+    <div class="card">
+      <div class="badge">AutoSync Mesh</div>
+      <h2>Smart Field Sync</h2>
+      <div class="tagline">“From auth to sheet, instantly.”</div>
+      <p>
+        Automatically copies user fields like email or role from your `auth.json` to any sheet with mapping enabled. Set once in schema, and keep your data synchronized as users register.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="badge">SheetTriggers</div>
+      <h2>Logic-Driven Actions</h2>
+      <div class="tagline">“If this... then that — right in your sheet.”</div>
+      <p>
+        Define data-triggered logic (like: if `role == admin` and `active == false`, then `flagged = true`). Execute internal transformations or set flags automatically as rows update.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="badge">gShell Relay</div>
+      <h2>External Messaging</h2>
+      <div class="tagline">“Trigger emails, alerts, and more.”</div>
+      <p>
+        Automate communication outside gShell. Use Relay to send welcome emails, notify Slack, or hit external webhooks whenever specific events occur.
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>
